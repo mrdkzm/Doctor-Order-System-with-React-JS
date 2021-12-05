@@ -1,5 +1,5 @@
 import react from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 const user_list = [
     { name: "Murad" },
@@ -15,21 +15,6 @@ const UserList = () => {
     const [userList2, setUserList2] = useState(userList)
     const [userInput, setUserInput] = useState(false)
     const [showError, setShowError] = useState(false)
-    const isInitialMount = useRef(true);
-
-    useEffect(() => {
-        if (isInitialMount.current) {
-            isInitialMount.current = false;
-        } 
-        else {
-            console.log("ok2")
-        }
-
-        setUserList2(userList)
-
-
-    }, [userList]);
-
 
 
     const newUser = (e) => {
@@ -69,10 +54,6 @@ const UserList = () => {
     const searchUser = (e) => {
         if (e.target.value.length > 0) {
             const filtered_array = userList.filter(row => {
-
-                // console.log(row.name)
-
-                // console.log(e.target.value.match(row.name))
                 return row.name.toString().toLowerCase().match(e.target.value.toString().toLowerCase().trim())
             })
             setUserList2([...filtered_array])
@@ -80,7 +61,6 @@ const UserList = () => {
         else {
             setUserList2(userList)
         }
-
     }
 
     return (
@@ -104,7 +84,6 @@ const UserList = () => {
                             <li key={index} > {row.name} <button type="button" onClick={deleteUser.bind(this, index, row)}> X </button>  </li>
                         )
                     })
-
                 }
             </ul>
         </>

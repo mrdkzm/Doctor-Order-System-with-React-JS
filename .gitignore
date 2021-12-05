@@ -13,6 +13,8 @@ src/Components/UseRef.js
 src/Components/UserInfo.js
 src/Components/Video.js
 src/Components/video.mp4
+public/videos/video.mp4
+src/index.css
 
 
 
