@@ -1,11 +1,10 @@
 import react from "react";
-import UserList from "./Components/UserList";
-
+import Doctor from "./Components/Doctor";
 const App = () => {
 
     return (
         <>
-            <UserList /> 
+             <Doctor />
         </>
     )
 }

@@ -24,7 +24,6 @@ const UserList = () => {
 
         if (value.length >= 3) {
             setShowError(false)
-
             setUserInput(value)
         }
         else {
@@ -38,8 +37,9 @@ const UserList = () => {
             setUserInput('')
             setUserList2([...userList, { name: userInput }])
         }
-
         e.preventDefault()
+
+        console.log()
     }
 
 

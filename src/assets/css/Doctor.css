@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70px;
+}
+
+.input_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input_container p {
+    color: red;
+    font-size: 18px;
+}
+
+.input_container input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+p {
+    display: inline-block;
+}
+
+
+h1 {
+    text-align: center;
+    color: #fff
+}
+
+select {
+    padding: 10px 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input_container input:focus {
+    border: 3px solid #54b7d3;
+}
+
+.container {
+    display: flex;
+}
+
+.user_list {
+    width: calc(100% / 4);
+    height: 100vh;
+}
+
+.user_list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    list-style-type: none;
+    padding: 10px 0;
+    color: #fff;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+span {
+    font-size: 60px;
+
+}
+
+.first {
+    background-color: #3B8EA5;
+}
+
+
+.second {
+    background-color: #F0A7A0;
+}
+
+.third {
+    background-color: #393424;
+}
+
+.fourth{
+    background-color: #E4B363
+}
+
+.text_input {
+    width: 100px;
+    height: 25px;
+}
+
+.text_input:focus {
+    outline: blue;
+}
+
+
+select:focus {
+    border: 3px solid #54b7d3;
+}
+
+select option {
+    font-size: 18px;
+
+}
+
+select option:hover{
+    cursor: pointer;
+}
+
+.submit_button{
+    padding: 10px 25px;
+    background-color: #12cebb;
+    border-radius: 7px;
+    font-size: 18px;
+    opacity: 0.7;
+    transition: opacity 0.5s ease;
+}
+
+
+.submit_button:hover{
+    opacity: 1;
+}
+
+
+.delete_button{
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-right: 10px
+}
