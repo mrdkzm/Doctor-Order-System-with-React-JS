@@ -6,6 +6,7 @@
 
 
 .form {
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -67,7 +68,7 @@ select {
 
 .user_list {
     width: calc(100% / 4);
-    height: 100vh;
+    height: 20vh;
 }
 
 .user_list li {
@@ -90,7 +91,6 @@ span {
 .first {
     background-color: #3B8EA5;
 }
-
 
 .second {
     background-color: #F0A7A0;

@@ -11,7 +11,7 @@ const Doctor = () => {
     const [thirdDoctor, setThirdDoctor] = useState([])
     const [fourthDoctor, setFourthDoctor] = useState([])
     const [pasientValue, setPasientValue] = useState('')
-    const [room, setRoom] = useState('')
+    const [room, setRoom] = useState(0)
     const [showError, setShowError] = useState(false)
     const refInput = useRef(null)
 
@@ -26,18 +26,21 @@ const Doctor = () => {
         const thirdDoctor = localStorage.getItem("thirdDoctor")
         setThirdDoctor(JSON.parse(thirdDoctor))
 
+        const fourthDoctor = localStorage.getItem("fourthDoctor")
+        setFourthDoctor(JSON.parse(fourthDoctor))
     }, [])
 
     useEffect(() => {
         localStorage.setItem('firstDoctor', JSON.stringify(firstDoctor))
         localStorage.setItem("secondDoctor", JSON.stringify(secondDoctor))
         localStorage.setItem("thirdDoctor", JSON.stringify(thirdDoctor))
-
+        localStorage.setItem("fourthDoctor", JSON.stringify(fourthDoctor))
     })
 
     const newPasient = (e) => {
-        if (e.target.value.length > 0) {
-            setPasientValue([e.target.value.trim()])
+
+        if (e.target.value > 0) {
+            setPasientValue([e.target.value])
             setShowError(true)
         }
         else {
@@ -68,29 +71,21 @@ const Doctor = () => {
             setShowError(false)
             refInput.current.focus()
         }
-
         setPasientValue('')
 
         e.preventDefault()
     }
 
+
+
     const selectRooms = (e) => {
 
-        let option_value = parseInt(e.target.value)
-        if (option_value === 1) {
-            setRoom(option_value)
-        }
-        else if (option_value === 2) {
-            setRoom(option_value)
-        }
-        else if (option_value === 3) {
-            setRoom(option_value)
-        }
-        else if (option_value === 4) {
-            setRoom(option_value)
-        }
+        var option_value = parseInt(e.target.value)
+            setRoom(option_value)   
     }
 
+    console.log(room)
+    
     function deleteUser(arr, index, item) {
         if (window.confirm(`Are you sure delete Room ${arr.name}?`)) {
             if (item === firstDoctor) {
@@ -109,13 +104,10 @@ const Doctor = () => {
     }
 
 
-
-
     return (
         <>
             <form type="submit" onSubmit={addPasient} className="form">
                 <div className="input_container">
-                    {/* <input type="text" onChange={newPasient} value={pasientValue || ''} className="text_input" ref={refInput} /> */}
                     <select onChange={newPasient} ref={refInput}>
                         {
                             rooms.map((item, index) => <option key={index} value={index}>{item}</option>)
@@ -141,7 +133,7 @@ const Doctor = () => {
                     {
                         firstDoctor.map((item, index, arr) => {
                             return <li key={index}>
-                               <span> {item.name} </span>  <button type="button" className="delete_button" onClick={deleteUser.bind(this, item, index, arr)}>Delete</button>
+                                <span> {item.name} </span>  <button type="button" className="delete_button" onClick={deleteUser.bind(this, item, index, arr)}>Delete</button>
                             </li>
                         })
                     }
@@ -151,8 +143,8 @@ const Doctor = () => {
                     <h1>Doctor 2</h1>
                     {
                         secondDoctor.map((item, index, arr) => {
-                            return <li key={index} style={{ fontSize : "30px"}}>
-                               <span> {item.name} </span>  <button type="button" className="delete_button" onClick={deleteUser.bind(this, item, index, arr)}>Delete</button>
+                            return <li key={index} style={{ fontSize: "30px" }}>
+                                <span> {item.name} </span>  <button type="button" className="delete_button" onClick={deleteUser.bind(this, item, index, arr)}>Delete</button>
                             </li>
                         })
                     }
@@ -163,7 +155,7 @@ const Doctor = () => {
                     {
                         thirdDoctor.map((item, index, arr) => {
                             return <li key={index}>
-                               <span> {item.name} </span>  <button type="button" className="delete_button" onClick={deleteUser.bind(this, item, index, arr)}>Delete</button>
+                                <span> {item.name} </span>  <button type="button" className="delete_button" onClick={deleteUser.bind(this, item, index, arr)}>Delete</button>
                             </li>
                         })
                     }
@@ -174,7 +166,7 @@ const Doctor = () => {
                     {
                         fourthDoctor.map((item, index, arr) => {
                             return <li key={index}>
-                               <span> {item.name} </span>  <button type="button" className="delete_button" onClick={deleteUser.bind(this, item, index, arr)}>Delete</button>
+                                <span> {item.name} </span>  <button type="button" className="delete_button" onClick={deleteUser.bind(this, item, index, arr)}>Delete</button>
                             </li>
                         })
                     }
